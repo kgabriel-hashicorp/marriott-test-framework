@@ -1,0 +1,63 @@
+{
+    "branches": [
+      "main"
+    ],
+    "ci": false,
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "conventionalcommits",
+          "releaseRules": [
+            {"type": "docs", "release": "patch"},
+            {"type": "chore", "release": "patch"},
+            {"type": "ci", "release": "patch"},
+            {"type": "fix", "release": "patch"},
+            {"type": "feat", "release": "minor"},
+            {"type": "BREAKING CHANGE", "release": "major"}    
+          ]
+        }
+      ],
+      [
+        "@semantic-release/release-notes-generator",
+        {
+          "preset": "conventionalcommits",
+          "presetConfig": {
+            "types": [
+              { "type": "docs", "section": "Documentation", "hidden": false },
+              { "type": "chore", "section": "Documentation", "hidden": false },
+              { "type": "ci", "section": "Documentation", "hidden": false },
+              { "type": "feat", "section": "Features", "hidden": false },
+              { "type": "fix", "section": "Bug Fixes", "hidden": false },
+              { "type": "BREAKING CHANGE", "section": "Breaking Changes", "hidden": false }
+            ]
+          }
+        }
+      ],
+      [
+        "@semantic-release/github",
+        {
+          "successComment": "This ${issue.pull_request ? 'PR is included' : 'issue has been resolved'} in version ${nextRelease.version} :tada:",
+          "labels": false,
+          "releasedLabels": false
+        }
+      ],
+      [
+        "@semantic-release/changelog",
+        {
+          "changelogFile": "CHANGELOG.md",
+          "changelogTitle": "# Changelog\n\nAll notable changes to this project will be documented in this file."
+        }
+      ],
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "CHANGELOG.md"
+          ],
+          "message": "chore(release): version ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+        }
+      ]
+    ]
+  }
+  
