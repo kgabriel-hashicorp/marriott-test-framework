@@ -1,22 +1,22 @@
 variable "region" {
-    default = "us-east-1"
+  default = "us-east-1"
 }
 
 variable "name" {
-    default = "docdbtest"
+  default = "docdbtest"
 }
 
 variable "docdb_instance_class" {
-    default = "db.r4.large"
+  default = "db.r4.large"
 }
 
 variable "family" {
-    default = "docdb3.6"
-  
+  default = "docdb3.6"
+
 }
 
 variable "docdb_password" {
-    default = "password"
-    sensitive = true
+  default   = "password"
+  sensitive = true
 }
 
