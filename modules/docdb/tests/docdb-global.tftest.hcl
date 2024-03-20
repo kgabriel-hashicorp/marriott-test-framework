@@ -35,3 +35,17 @@ run "create_doc_db_global" {
     enable_global_cluster = true
   }
 }
+
+
+// [docdb] terraform test                                                                     21:24:04  ☁  initial-commit ☂ ✖ ⚡ ✭
+// tests/docdb-global.tftest.hcl... in progress
+//   run "create_doc_db_global"... pass
+// tests/docdb-global.tftest.hcl... tearing down
+// tests/docdb-global.tftest.hcl... pass
+// tests/docdb-single-region.tftest.hcl... in progress
+//   run "create_doc_db_regional"... pass
+// tests/docdb-single-region.tftest.hcl... tearing down
+// tests/docdb-single-region.tftest.hcl... pass
+
+// Success! 2 passed, 0 failed.
+// [docdb]    
