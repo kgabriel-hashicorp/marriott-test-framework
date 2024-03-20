@@ -1,32 +1,74 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+  }
+}
 
 provider "aws" {
-  region = var.region
+  region = var.primary_region
 }
 
-resource "aws_docdb_cluster_instance" "service" {
-  count              = 1
-  identifier         = "marriott-${var.name}-${count.index}"
-  cluster_identifier = "${aws_docdb_cluster.service.id}"
-  instance_class     = "${var.docdb_instance_class}"
-
-  lifecycle {
-    postcondition {
-      condition = length(self.identifier) < 63
-      error_message =  "The identifier must be between 1 and 63 characters long."
-    }
-   }
+provider "aws" {
+  alias  = "secondary"
+  region = var.secondary_region
 }
 
-resource "aws_docdb_cluster" "service" {
-  skip_final_snapshot     = true
-  cluster_identifier      = "tf-${var.name}"
-  engine                  = "docdb"
-  master_username         = "tf_${replace(var.name, "-", "_")}_admin"
-  master_password         = "${var.docdb_password}"
-  db_cluster_parameter_group_name = "${aws_docdb_cluster_parameter_group.service.name}"
+resource "aws_docdb_global_cluster" "global_db_cluster" {
+  count                     = var.enable_global_cluster ? 1 : 0
+  global_cluster_identifier = var.global_cluster_identifier
+  engine                    = var.engine
+  engine_version            = var.engine_version
 }
 
-resource "aws_docdb_cluster_parameter_group" "service" {
-  family = var.family
-  name = "tf-${var.name}"
+
+resource "aws_docdb_cluster" "primary" {
+  engine                    = var.engine
+  engine_version            = var.engine_version
+  cluster_identifier        = var.primary_cluster_identifier
+  master_username           = "username"
+  master_password           = "somepass123"
+  #confirm with jesse what's the logic used for global_cluster_identifier
+  global_cluster_identifier = var.enable_global_cluster ? aws_docdb_global_cluster.global_db_cluster[0].id : null
+  db_subnet_group_name      = "default"
+  skip_final_snapshot       = var.skip_final_snapshot
 }
+
+resource "aws_docdb_cluster_instance" "primary" {
+  engine             = var.engine
+  identifier         = var.primary_instance_identifier
+  cluster_identifier = aws_docdb_cluster.primary.id
+  instance_class     = var.docdb_instance_class
+}
+
+resource "aws_docdb_cluster" "secondary" {
+  count                     = var.enable_global_cluster ? 1 : 0
+  provider                  = aws.secondary
+  engine                    = var.engine
+  engine_version            = var.engine_version
+  cluster_identifier        = var.secondary_cluster_identifier
+  global_cluster_identifier = aws_docdb_global_cluster.global_db_cluster[count.index].id
+  db_subnet_group_name      = "default"
+  skip_final_snapshot = var.skip_final_snapshot
+
+  depends_on = [
+    aws_docdb_cluster.primary,
+    aws_docdb_cluster_instance.primary
+  ]
+}
+
+resource "aws_docdb_cluster_instance" "secondary" {
+  count              = var.enable_global_cluster ? 1 : 0
+  provider           = aws.secondary
+  engine             = var.engine
+  identifier         = var.secondary_instance_identifier
+  cluster_identifier = aws_docdb_cluster.secondary[count.index].id
+  instance_class     = var.docdb_instance_class
+
+  depends_on = [
+    aws_docdb_cluster_instance.primary
+  ]
+}
+
