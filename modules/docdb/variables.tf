@@ -1,5 +1,6 @@
 variable "name" {
   default = "docdbtest"
+  default = "docdbtest"
 }
 
 variable "docdb_instance_class" {
@@ -9,9 +10,13 @@ variable "docdb_instance_class" {
 variable "family" {
   default = "docdb3.6"
 
+  default = "docdb3.6"
+
 }
 
 variable "docdb_password" {
+  default   = "password"
+  sensitive = true
   default   = "password"
   sensitive = true
 }

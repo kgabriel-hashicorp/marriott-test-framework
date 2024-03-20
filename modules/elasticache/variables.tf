@@ -9,10 +9,10 @@ variable "node_groups" {
 }
 
 variable "region" {
-    default = "us-east-1"
+  default = "us-east-1"
 }
 
 variable "node_type" {
-    default = "cache.m4.large"
-  
+  default = "cache.m4.large"
+
 }
