@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.0](https://github.com/kgabriel-hashicorp/marriott-test-framework/compare/v1.0.0...v1.1.0) (2024-03-20)
+
+
+### Features
+
+* complete documentdb testing (global and single region) ([c92cbde](https://github.com/kgabriel-hashicorp/marriott-test-framework/commit/c92cbde558895aed4f0e4e13b3b49c0a52de75d1))
+* global aurora ([869ed60](https://github.com/kgabriel-hashicorp/marriott-test-framework/commit/869ed6022a699b95ea7cebbcf5cb5ce11a6de560))
+
+
+### Bug Fixes
+
+* Auto format codebase ([bca7f12](https://github.com/kgabriel-hashicorp/marriott-test-framework/commit/bca7f125f97afbdcc4bf1f7d21b9ed44f8b1db3c))
+
+
+### Documentation
+
+* add test time ([0d3c198](https://github.com/kgabriel-hashicorp/marriott-test-framework/commit/0d3c19858bccca9060c764f2002cf0d2e307ab8b))
+
 ## 1.0.0 (2024-03-20)
 
 
