@@ -32,7 +32,7 @@ resource "aws_rds_cluster" "primary" {
   database_name             = "example_db"
   global_cluster_identifier = aws_rds_global_cluster.example.id
   db_subnet_group_name      = "default"
-  skip_final_snapshot = var.skip_final_snapshot
+  skip_final_snapshot       = var.skip_final_snapshot
 }
 
 resource "aws_rds_cluster_instance" "primary" {
