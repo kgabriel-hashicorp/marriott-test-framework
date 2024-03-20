@@ -1,6 +1,10 @@
 
-# module template
-This repository contains the standards we recommend having for a root module in Terraform.
+# Marriott Test Framework
+This repository will contain the test cases for the following AWS reources
+*RDS-Classic
+*DocumentDB
+*Aurora
+*ElastiCache(redis)
 
 ## Usage
 What will be this module for?
@@ -33,13 +37,9 @@ No outputs.
 
 ## Reference
 
-Link to the [ModuleStandardizationPage]
-
 ## CI Checks
 
 You will need to have GitHub Actions available for this repository.
-
-TODO: For amex template make sure that the workflows have the correct runs-on value
 
 ## Contributing
 
@@ -57,5 +57,3 @@ TODO: For amex template make sure that the workflows have the correct runs-on va
 ## Maintainers
 CODEOWNERS file contain the maintainers of this repository
 This can also include a link to a [Slack] Channel 
-
-test breaking change
