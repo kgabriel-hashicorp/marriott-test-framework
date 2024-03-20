@@ -9,12 +9,28 @@
 
 // Success! 1 passed, 0 failed.
 // [modules]                                                                                     10:12:07  ☁  initial-commit ☂ ✖ ✭
-run "create_doc_db" {
-    command = apply
 
-    variables {
-        docdb_instance_class = "db.t3.medium"
-        family = "docdb5.0"
-    }
+
+#Test Started: 22:09
+#teardown: 22:19
+#complete teardown 22:31
+#total time: 22 mins
+variables {
+  docdb_instance_class        = "db.r5.large"
+  family                      = "docdb5.0"
+  primary_cluster_identifier  = "test-regional-cluster"
+  primary_instance_identifier = "test-regional-instance"
+  skip_final_snapshot         = true
 }
 
+
+##if enable_global_cluster = true 
+
+run "create_doc_db_regional" {
+  command = apply
+
+  variables {
+
+    enable_global_cluster = false
+  }
+}
