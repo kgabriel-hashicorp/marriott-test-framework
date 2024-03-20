@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.0 (2024-03-20)
+
+
+### Features
+
+* add aurora, elasticache and docdb tests ([bc4bc69](https://github.com/kgabriel-hashicorp/marriott-test-framework/commit/bc4bc69db97291a0a91bf3ef4c51e455a8360e4b))
+
+
+### Bug Fixes
+
+* Auto format codebase ([6918b9b](https://github.com/kgabriel-hashicorp/marriott-test-framework/commit/6918b9b1e45bd92f501ee128acc745758322a2b6))
+
+
+### Documentation
+
+* remove uppercase validation ([6e0ee33](https://github.com/kgabriel-hashicorp/marriott-test-framework/commit/6e0ee3387cb2b2edc807378c72dbbde8bed593ce))
+* update README.md ([46229e9](https://github.com/kgabriel-hashicorp/marriott-test-framework/commit/46229e9976b2a1ca301df98b90df6f8509b0635c))
+
 ## [1.1.0](https://github.com/kgabriel-hashicorp/terraform-module-template/compare/v1.0.1...v1.1.0) (2024-01-04)
 
 
