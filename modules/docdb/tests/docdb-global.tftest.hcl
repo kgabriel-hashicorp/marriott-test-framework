@@ -34,6 +34,13 @@ run "create_doc_db_global" {
 
     enable_global_cluster = true
   }
+
+    assert {
+    condition     = (aws_docdb_cluster.primary.global_cluster_identifier == aws_docdb_cluster.secondary[0].global_cluster_identifier) == true
+    error_message = "Primary and Secondary do not belong to the same global cluster"
+ 
+  }
+
 }
 
 

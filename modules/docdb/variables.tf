@@ -1,6 +1,5 @@
 variable "name" {
   default = "docdbtest"
-  default = "docdbtest"
 }
 
 variable "docdb_instance_class" {
@@ -10,17 +9,12 @@ variable "docdb_instance_class" {
 variable "family" {
   default = "docdb3.6"
 
-  default = "docdb3.6"
-
 }
 
 variable "docdb_password" {
   default   = "password"
   sensitive = true
-  default   = "password"
-  sensitive = true
 }
-
 
 variable "enable_global_cluster" {
   type    = bool
@@ -60,9 +54,9 @@ variable "secondary_region" {
 }
 
 variable "engine" {
-    default = "docdb"
+  default = "docdb"
 }
 
 variable "engine_version" {
-    default = "4.0.0"
+  default = "4.0.0"
 }
