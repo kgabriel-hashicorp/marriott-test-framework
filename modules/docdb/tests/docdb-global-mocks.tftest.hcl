@@ -1,7 +1,9 @@
 variables {
-  docdb_instance_class = "db.r5.large"
-  skip_final_snapshot  = true
+  docdb_instance_class      = "db.r5.large"
+  skip_final_snapshot       = true
+  global_cluster_identifier = "test-global-cluster"
 }
+
 
 override_resource {
   target = aws_docdb_cluster.primary
@@ -21,6 +23,9 @@ override_resource {
 
 override_resource {
   target = aws_docdb_global_cluster.global_db_cluster
+  values = {
+  id = "test123id"
+    } 
 }
 
 run "check_regional_docdb_cluster" {
@@ -53,7 +58,6 @@ run "check_global_docdb_cluster" {
     primary_instance_identifier   = "test-primary-instance"
     secondary_cluster_identifier  = "test-secondary-cluster"
     secondary_instance_identifier = "test-secondary-instance"
-    global_cluster_identifier     = "test-global-cluster"
     enable_global_cluster         = true
   }
 
@@ -84,6 +88,11 @@ run "check_global_docdb_cluster" {
     condition     = aws_docdb_global_cluster.global_db_cluster[0].global_cluster_identifier == "test-global-cluster"
     error_message = "Global Cluster identifier is not as expected"
 
+  }
+
+  assert {
+    condition     = (aws_docdb_cluster.primary.global_cluster_identifier == aws_docdb_cluster.secondary[0].global_cluster_identifier) == true
+    error_message = "Primary and Secondary do not belong to the same global cluster"
   }
 
 }
