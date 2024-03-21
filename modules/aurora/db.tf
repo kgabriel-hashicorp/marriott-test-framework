@@ -46,7 +46,7 @@ resource "aws_rds_cluster_instance" "primary" {
 }
 
 resource "aws_rds_cluster" "secondary" {
-    count = var.enable_global_cluster ? 1 : 0
+  count                     = var.enable_global_cluster ? 1 : 0
   provider                  = aws.secondary
   engine                    = var.engine
   engine_version            = var.engine_version
@@ -60,7 +60,7 @@ resource "aws_rds_cluster" "secondary" {
 }
 
 resource "aws_rds_cluster_instance" "secondary" {
-     count = var.enable_global_cluster ? 1 : 0
+  count                = var.enable_global_cluster ? 1 : 0
   provider             = aws.secondary
   engine               = var.engine
   engine_version       = var.engine_version

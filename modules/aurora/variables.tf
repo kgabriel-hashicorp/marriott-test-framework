@@ -1,12 +1,12 @@
 variable "database_name" {
-    default = "global-cluster-aurora-db"
-  
+  default = "global-cluster-aurora-db"
+
 }
 variable "db_cluster_instance_class" {
   default = "db.r4.large"
 }
 
-variable "engine" { 
+variable "engine" {
   default = "aurora-postgresql"
 }
 
