@@ -1,9 +1,25 @@
+variable "database_name" {
+    default = "global-cluster-aurora-db"
+  
+}
 variable "db_cluster_instance_class" {
   default = "db.r4.large"
 }
 
+variable "engine" { 
+  default = "aurora-postgresql"
+}
+
+variable "engine_version" {
+  default = 11.9
+}
+
 variable "cluster_identifier" {
   default = "demo-cluster"
+}
+
+variable "enable_global_cluster" {
+  default = false
 }
 
 variable "skip_final_snapshot" {
@@ -11,7 +27,7 @@ variable "skip_final_snapshot" {
 }
 
 variable "global_cluster_identifier" {
-  default = "global-cluster"
+  default = "global-cluster-aurora"
 }
 
 variable "primary_cluster_identifier" {
