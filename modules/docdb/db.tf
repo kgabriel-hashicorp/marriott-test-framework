@@ -25,12 +25,11 @@ resource "aws_docdb_global_cluster" "global_db_cluster" {
 
 
 resource "aws_docdb_cluster" "primary" {
-  engine             = var.engine
-  engine_version     = var.engine_version
-  cluster_identifier = var.primary_cluster_identifier
-  master_username    = "username"
-  master_password    = "somepass123"
-  #confirm with jesse what's the logic used for global_cluster_identifier
+  engine                    = var.engine
+  engine_version            = var.engine_version
+  cluster_identifier        = var.primary_cluster_identifier
+  master_username           = "username"
+  master_password           = "somepass123"
   global_cluster_identifier = var.enable_global_cluster ? aws_docdb_global_cluster.global_db_cluster[0].id : null
   db_subnet_group_name      = "default"
   skip_final_snapshot       = var.skip_final_snapshot
