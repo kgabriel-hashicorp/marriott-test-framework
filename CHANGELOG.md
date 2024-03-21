@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.0](https://github.com/kgabriel-hashicorp/marriott-test-framework/compare/v1.1.0...v1.2.0) (2024-03-21)
+
+
+### Features
+
+* add docdb global identitier validation ([984037c](https://github.com/kgabriel-hashicorp/marriott-test-framework/commit/984037c676601d5cc4d27abbfd2a11e892c91aab))
+* add mock data for global identitier for consistency ([b1ee683](https://github.com/kgabriel-hashicorp/marriott-test-framework/commit/b1ee6838336f0cd66aec62bcf3cf5a776d806929))
+* add mock test to docdb ([e8e95f9](https://github.com/kgabriel-hashicorp/marriott-test-framework/commit/e8e95f92b05880b616578cfe79820695e8cd584d))
+* aurora db variables ([3baa68e](https://github.com/kgabriel-hashicorp/marriott-test-framework/commit/3baa68e332bacd0e6efd7dc281fe5c0443144e01))
+* auroro mock test ([ff95101](https://github.com/kgabriel-hashicorp/marriott-test-framework/commit/ff951015e86eb22ba0739444147141f285d220c2))
+* fix docdb variables ([c03c2f6](https://github.com/kgabriel-hashicorp/marriott-test-framework/commit/c03c2f677039bde28e549f5489260d5658a02e6a))
+* remove comment from docdb ([f99ff3e](https://github.com/kgabriel-hashicorp/marriott-test-framework/commit/f99ff3e3dbbf8b6bf12b23d96a21bf684ad3150f))
+
+
+### Bug Fixes
+
+* Auto format codebase ([c725497](https://github.com/kgabriel-hashicorp/marriott-test-framework/commit/c725497d1fb0e1604489be7d68222660a70fec58))
+
 ## [1.1.0](https://github.com/kgabriel-hashicorp/marriott-test-framework/compare/v1.0.0...v1.1.0) (2024-03-20)
 
 
