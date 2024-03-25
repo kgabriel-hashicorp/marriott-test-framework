@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.0](https://github.com/kgabriel-hashicorp/marriott-test-framework/compare/v1.2.0...v1.3.0) (2024-03-25)
+
+
+### Features
+
+* add docdb instance validation ([10728ae](https://github.com/kgabriel-hashicorp/marriott-test-framework/commit/10728aef1bacbb792eed58faea01e4c040ea988d))
+
+
+### Bug Fixes
+
+* Auto format codebase ([b769023](https://github.com/kgabriel-hashicorp/marriott-test-framework/commit/b769023046c48c9c965ed2570818fcdf7a319b8c))
+
 ## [1.2.0](https://github.com/kgabriel-hashicorp/marriott-test-framework/compare/v1.1.0...v1.2.0) (2024-03-21)
 
 
