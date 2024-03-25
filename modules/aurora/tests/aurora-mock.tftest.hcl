@@ -2,6 +2,7 @@ variables {
   db_cluster_instance_class = "db.r4.large"
   skip_final_snapshot       = true
   global_cluster_identifier = "test-global-aurora-cluster"
+  engine_version            = "11.9"
 }
 
 override_resource {
@@ -51,7 +52,7 @@ run "check_regional_rds_cluster" {
 
 }
 
-run "check_global_docdb_cluster" {
+run "check_global_rds_cluster" {
 
   variables {
     primary_cluster_identifier    = "test-primary-aurora-cluster"
@@ -94,6 +95,42 @@ run "check_global_docdb_cluster" {
     condition     = (aws_rds_cluster.primary.global_cluster_identifier == aws_rds_cluster.secondary[0].global_cluster_identifier) == true
     error_message = "Primary and Secondary do not belong to the same global cluster"
   }
+
+}
+
+
+
+run "check_instance_class_is_valid_primary" {
+
+    command = plan
+
+    module {
+        source = "./tests/load"
+    }
+
+    variables {
+        engine = run.check_global_rds_cluster.engine
+        db_cluster_instance_class = run.check_global_rds_cluster.primary_instance_class
+        region = run.check_global_rds_cluster.primary_region
+        engine_version = run.check_global_rds_cluster.engine_version
+    }
+
+}
+
+run "check_instance_class_is_valid_secondary" {
+
+    command = plan
+
+    module {
+        source = "./tests/load"
+    }
+
+    variables {
+        engine = run.check_global_rds_cluster.engine
+        db_cluster_instance_class = run.check_global_rds_cluster.primary_instance_class
+        region = run.check_global_rds_cluster.secondary_region
+        engine_version = run.check_global_rds_cluster.engine_version
+    }
 
 }
 
