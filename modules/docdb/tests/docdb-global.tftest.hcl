@@ -14,7 +14,7 @@
 #Start of test: 21:24
 #Completed Creation: 21:44
 #teardown completed: 22:09PM
-#total time: 45 mins
+#total time: 45 mins to an hour
 variables {
   docdb_instance_class          = "db.r5.large"
   family                        = "docdb5.0"
@@ -35,10 +35,10 @@ run "create_doc_db_global" {
     enable_global_cluster = true
   }
 
-    assert {
+  assert {
     condition     = (aws_docdb_cluster.primary.global_cluster_identifier == aws_docdb_cluster.secondary[0].global_cluster_identifier) == true
     error_message = "Primary and Secondary do not belong to the same global cluster"
- 
+
   }
 
 }
@@ -56,3 +56,5 @@ run "create_doc_db_global" {
 
 // Success! 2 passed, 0 failed.
 // [docdb]    
+
+#Test Started: 12:38:43
