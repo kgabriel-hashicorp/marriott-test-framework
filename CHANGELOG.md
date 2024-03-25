@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.4.0](https://github.com/kgabriel-hashicorp/marriott-test-framework/compare/v1.3.0...v1.4.0) (2024-03-25)
+
+
+### Features
+
+* add instance class check ([62a8ed8](https://github.com/kgabriel-hashicorp/marriott-test-framework/commit/62a8ed85cf7770390c4f2f04e29730c993d34f30))
+* rename docdb mocks test ([edf092b](https://github.com/kgabriel-hashicorp/marriott-test-framework/commit/edf092b049d522c1fe800f007b81741a65563a33))
+
 ## [1.3.0](https://github.com/kgabriel-hashicorp/marriott-test-framework/compare/v1.2.0...v1.3.0) (2024-03-25)
 
 
