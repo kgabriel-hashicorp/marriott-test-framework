@@ -1,9 +1,7 @@
 variables {
-  docdb_instance_class      = "db.r5.large"
   skip_final_snapshot       = true
   global_cluster_identifier = "test-global-cluster"
 }
-
 
 override_resource {
   target = aws_docdb_cluster.primary
@@ -24,14 +22,13 @@ override_resource {
 override_resource {
   target = aws_docdb_global_cluster.global_db_cluster
   values = {
-  id = "test123id"
-    } 
+    id = "test123id"
+  }
 }
 
 run "check_regional_docdb_cluster" {
 
   variables {
-    docdb_instance_class        = "db.r5.large"
     primary_cluster_identifier  = "test-regional-cluster"
     primary_instance_identifier = "test-regional-instance"
     enable_global_cluster       = false
@@ -94,6 +91,23 @@ run "check_global_docdb_cluster" {
     condition     = (aws_docdb_cluster.primary.global_cluster_identifier == aws_docdb_cluster.secondary[0].global_cluster_identifier) == true
     error_message = "Primary and Secondary do not belong to the same global cluster"
   }
+
+}
+
+run "check_instance_class_is_valid_primary" {
+
+    command = plan
+
+    module {
+        source = "./tests/load"
+    }
+
+    variables {
+        engine = run.check_regional_docdb_cluster.engine
+        docdb_instance_class = run.check_regional_docdb_cluster.primary_instance_class
+        region = run.check_regional_docdb_cluster.secondary_region
+        engine_version = run.check_regional_docdb_cluster.engine_version
+    }
 
 }
 
