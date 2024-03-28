@@ -1,18 +1,37 @@
-variable "cluster_id" {
-  description = "Id to assign the new cluster"
-  default     = "redis-cluster"
-}
-
-variable "node_groups" {
-  description = "Number of nodes groups to create in the cluster"
-  default     = 3
-}
-
-variable "region" {
+variable "primary_region" {
   default = "us-east-1"
 }
 
-variable "node_type" {
-  default = "cache.m4.large"
+variable "secondary_region" {
+  default = "us-east-2"
+}
 
+variable "node_type" {
+  default = "cache.m5.large"
+
+}
+
+variable "engine" {
+  default = "redis"
+}
+
+variable "engine_version" {
+  default = "5.0.6"
+}
+
+variable "enable_global_cluster" {
+  type    = bool
+  default = true
+}
+
+variable "global_replication_group_id_suffix" {
+  default = "global"
+}
+
+variable "primary_replication_group_id" {
+  default = "primary-replication-group"
+}
+
+variable "secondary_replication_group_id" {
+  default = "secondary-replication-group"
 }
