@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.0](https://github.com/kgabriel-hashicorp/marriott-test-framework/compare/v1.4.0...v1.5.0) (2024-03-28)
+
+
+### Features
+
+* add elasticache test ([ded59f8](https://github.com/kgabriel-hashicorp/marriott-test-framework/commit/ded59f8d7b6639a789e651e6f992b1fb8fcfe9a7))
+
 ## [1.4.0](https://github.com/kgabriel-hashicorp/marriott-test-framework/compare/v1.3.0...v1.4.0) (2024-03-25)
 
 
