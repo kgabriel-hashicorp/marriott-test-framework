@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.6.0](https://github.com/kgabriel-hashicorp/marriott-test-framework/compare/v1.5.0...v1.6.0) (2024-04-03)
+
+
+### Features
+
+* add tests for RDS ([1c72110](https://github.com/kgabriel-hashicorp/marriott-test-framework/commit/1c72110aad718480f4cb16b512b9503b6660866b))
+
+
+### Bug Fixes
+
+* Auto format codebase ([d626968](https://github.com/kgabriel-hashicorp/marriott-test-framework/commit/d6269681844043732607f5b03b7bc2f669206c42))
+
 ## [1.5.0](https://github.com/kgabriel-hashicorp/marriott-test-framework/compare/v1.4.0...v1.5.0) (2024-03-28)
 
 
