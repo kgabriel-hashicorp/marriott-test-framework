@@ -2,7 +2,7 @@ variables {
   db_cluster_instance_class = "db.r4.large"
   skip_final_snapshot       = true
   global_cluster_identifier = "test-global-aurora-cluster"
-  engine_version            = "11.9"
+  engine_version            = "11.9.9"
 }
 
 override_resource {
