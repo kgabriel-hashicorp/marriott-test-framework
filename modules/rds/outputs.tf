@@ -16,5 +16,5 @@ output "region" {
 
 output "storage_type" {
   value = aws_db_instance.default.storage_type
-  
+
 }

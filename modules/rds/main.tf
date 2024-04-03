@@ -13,5 +13,5 @@ resource "aws_db_instance" "default" {
   password             = "foobarbaz"
   parameter_group_name = var.parameter_group_name
   skip_final_snapshot  = true
-  storage_type = var.storage_type
+  storage_type         = var.storage_type
 }
