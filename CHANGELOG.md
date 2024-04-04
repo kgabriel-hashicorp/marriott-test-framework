@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.6.2](https://github.com/kgabriel-hashicorp/marriott-test-framework/compare/v1.6.1...v1.6.2) (2024-04-04)
+
+
+### Documentation
+
+* remove unecessary check ([0007d41](https://github.com/kgabriel-hashicorp/marriott-test-framework/commit/0007d41d90f014ea0349fa6b48258d9b3a5fb927))
+* update main readme ([61c9310](https://github.com/kgabriel-hashicorp/marriott-test-framework/commit/61c9310c8ddb3c73783869bad623d4a7394b81b2))
+
 ## [1.6.1](https://github.com/kgabriel-hashicorp/marriott-test-framework/compare/v1.6.0...v1.6.1) (2024-04-04)
 
 
