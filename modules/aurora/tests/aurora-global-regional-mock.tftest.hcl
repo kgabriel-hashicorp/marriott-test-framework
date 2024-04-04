@@ -1,3 +1,6 @@
+
+#variables that can be changed to cater to tests
+#This can be removed and the test will just use the variables provided in the module.
 variables {
   db_cluster_instance_class = "db.r4.large"
   skip_final_snapshot       = true
@@ -5,6 +8,10 @@ variables {
   engine_version            = "11.9.9"
 }
 
+
+#override_resource block is used to override the values of the resources in the module with mock values.
+#In addition, you can override an attrtibute of the resource block. 
+#In this case, the id attribute of the aws_rds_global_cluster resource is overriden with the value "testaurora123"
 override_resource {
   target = aws_rds_global_cluster.global_db_cluster
   values = {
@@ -108,6 +115,7 @@ run "check_instance_class_is_valid_primary" {
         source = "./tests/load"
     }
 
+    # variable block that is passed to the module under ./tests/load\
     variables {
         engine = run.check_global_rds_cluster.engine
         db_cluster_instance_class = run.check_global_rds_cluster.primary_instance_class
