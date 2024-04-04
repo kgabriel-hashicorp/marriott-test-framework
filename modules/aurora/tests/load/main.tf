@@ -15,6 +15,8 @@ variable "engine" {}
 variable "db_cluster_instance_class" {}
 variable "engine_version" {}
 
+#datasource that checks given the combination of engine, instance_class and engine_version, if the db instance is orderable
+
 data "aws_rds_orderable_db_instance" "test" {
   engine         = var.engine
   instance_class = var.db_cluster_instance_class
