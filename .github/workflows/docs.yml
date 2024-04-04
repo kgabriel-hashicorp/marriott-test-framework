@@ -21,3 +21,5 @@ jobs:
       with:
         git-push: true
         git-commit-message: "fix: Auto update Terraform docs"
+        recursive: true
+
