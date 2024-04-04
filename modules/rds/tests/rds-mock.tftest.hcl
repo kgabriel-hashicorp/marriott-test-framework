@@ -34,6 +34,6 @@ run "check_instance_class_valid" {
     storage_type   = run.check_db_name.storage_type
   }
 
-    
+
 
 }
