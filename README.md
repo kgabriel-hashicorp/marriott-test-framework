@@ -1,14 +1,26 @@
 
 # Marriott Test Framework
 This repository will contain the test cases for the following AWS reources
-*RDS-Classic
-*DocumentDB
-*Aurora
-*ElastiCache(redis)
+- RDS-Classic
+- DocumentDB
+- Aurora
+- ElastiCache(redis)
+
+The main test paths are:
+- Ensuring the resource deploy
+- Enabling a global cluster for DocDB, ElastiCache and Aurora
 
 ## Usage
-What will be this module for?
 
+- The resources are separated into different folders under modules. 
+- The test cases and code is found under the `/tests` folder per module
+
+### How to run
+1. You must have at least 1.7 version of Terraform
+2. Go to the specific resource under the module you want to test and run
+`terraform test`
+
+Note: More details/instructions is available on the tests README.mds
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
