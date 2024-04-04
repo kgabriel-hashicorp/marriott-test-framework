@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.6.3](https://github.com/kgabriel-hashicorp/marriott-test-framework/compare/v1.6.2...v1.6.3) (2024-04-04)
+
+
+### Bug Fixes
+
+* Auto update Terraform docs ([d11e408](https://github.com/kgabriel-hashicorp/marriott-test-framework/commit/d11e408ec7f1ab3c07cf3c04c1c3a440170ddfea))
+
+
+### Documentation
+
+* format ([169aac8](https://github.com/kgabriel-hashicorp/marriott-test-framework/commit/169aac8feb53ce649284dbb82823af48995811a1))
+* use recursive ([3f3c999](https://github.com/kgabriel-hashicorp/marriott-test-framework/commit/3f3c999973a90aa877c6d812b477a9828224858d))
+
 ## [1.6.2](https://github.com/kgabriel-hashicorp/marriott-test-framework/compare/v1.6.1...v1.6.2) (2024-04-04)
 
 
