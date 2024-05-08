@@ -1,0 +1,26 @@
+name: Validate Code
+
+on:
+  pull_request
+
+permissions:
+  contents: read
+
+jobs:
+  format:
+    name: Validate Code
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v3
+      with:
+        terraform_version: "1.1.8"
+    - name: Terraform Init
+      id: init
+      run: terraform init
+    - name: Terraform Validate
+      id: validate
+      run: terraform validate -no-color
+    

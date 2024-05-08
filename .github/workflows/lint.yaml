@@ -19,12 +19,23 @@ jobs:
         path: ~/.tflint.d/plugins
         key: tflint-${{ hashFiles('.tflint.hcl') }}
 
+    - name: Import Terraform Token
+      uses: hashicorp/vault-action@v3.0.0
+      with:
+        url: ${{ env.VAULT_ADDR }}}}
+        exportToken: true
+        tlsSkipVerify: true
+        namespace: admin
+        token: ${{ secrets.VAULT_TOKEN }}
+        secrets: |
+          secret/data/tfe tfe_org_token
+
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v3
       with:
-        terraform_version: "1.0.0"
-        cli_config_credentials_token: ${{ secrets.TF_ORG_TOKEN }}
-        cli_config_credentials_hostname: "tfe.karla-gabriel.sbx.hashidemos.io"
+        terraform_version: "1.1.8"
+        cli_config_credentials_token: ${{ secrets.TFE_ORG_TOKEN }}
+        cli_config_credentials_hostname: ${{ secrets.TFE_HOSTNAME }}
 
     - name: Terraform Init
       id: init
@@ -33,7 +44,7 @@ jobs:
     - name: Setup TFLint
       uses: terraform-linters/setup-tflint@v4
       with:
-        tflint_version: "v0.49.0"
+        tflint_version: "v0.50.3"
     - name: TFLint
       run: |
         tflint --init

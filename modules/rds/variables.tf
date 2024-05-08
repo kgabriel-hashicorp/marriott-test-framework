@@ -11,7 +11,7 @@ variable "parameter_group_name" {
 }
 
 variable "engine_version" {
-  default = "5.7"
+  default = "5.7.44"
 }
 
 variable "instance_class" {
