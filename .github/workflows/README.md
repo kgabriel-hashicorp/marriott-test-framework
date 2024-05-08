@@ -44,7 +44,7 @@ Note: terraform_required_version is disabled since this is a module.
   
 **Recommended Rules**
 
-We recommend using the `preset=all` setting however this will need to be further checked as it might fail on Amex modules (particularly the decprecated checks)
+We recommend using the `preset=all` setting however this will need to be further checked.
 
 For now we've enabled the following:
 
@@ -64,7 +64,6 @@ Reference: https://github.com/terraform-linters/tflint-ruleset-terraform/blob/ma
     * README.md
     * provider.tf
     * backend.tf
-    * .amex/buildblock.yaml
       TODO: Potentially integrate the Buildblocks CLI to validate
 
 ### checkov
@@ -72,7 +71,6 @@ Reference: https://github.com/terraform-linters/tflint-ruleset-terraform/blob/ma
 * checkov is a static code analysis tool used for infrastructure-as-code. 
 * Much like tflint, checkov also follows a set of policies that you can dictate but is geared towards security checks. 
 
-__TODO_: HashiCorp and Amex to collaborate on the policies that would be good to have in the template_
 
 * To pull modules on a private registry the following must be set:
   * Enviornment Variables
@@ -108,8 +106,6 @@ An additional step that is added to the workflow to automatically commit the cha
 ### How does it work?
 
 the `dependabot.yaml` file contains all the configurations you need. 
-
-TODO: AMEX has a different way to using dependabot we will need to port these changes
 
 https://github.com/kgabriel-hashicorp/demo-root-module/blob/main/.github/dependabot.yaml
 

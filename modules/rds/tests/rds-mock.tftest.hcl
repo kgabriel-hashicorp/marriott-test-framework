@@ -1,17 +1,15 @@
-variables {
-  instance_class      = "db.r4.large"
-  skip_final_snapshot = true
-  database_name       = "testdb"
-  engine_version      = "11.9"
-  engine              = "aurora-postgresql"
-  storage_type        = "aurora"
-}
-
 override_resource {
   target = aws_db_instance.default
 }
 
+variables {
+  database_name = "testdb"
+  instance_class = "db.t3.micro"
+}
+
 run "check_db_name" {
+
+  command = plan
   assert {
     condition     = aws_db_instance.default.db_name == "testdb"
     error_message = "The database name is not correct"

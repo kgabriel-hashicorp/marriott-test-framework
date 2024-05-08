@@ -4,6 +4,15 @@ variables {
   database_name       = "testdb"
 }
 
+run "check_db_name" {
+
+  command = plan
+  assert {
+    condition     = aws_db_instance.default.db_name == "testdb"
+    error_message = "The database name is not correct"
+  }
+}
+
 
 run "check_instance_class_valid" {
 
