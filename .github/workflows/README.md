@@ -44,9 +44,9 @@ Note: terraform_required_version is disabled since this is a module.
   
 **Recommended Rules**
 
-We recommend using the `preset=all` setting however this will need to be further checked.
+We recommend using the `preset=all` setting however this will need to be further checked as it might fail on the deprecated checks
 
-For now we've enabled the following:
+For now now we've enabled the following:
 
 | Rule | Description|
 ----------------| -------------
@@ -56,27 +56,30 @@ For now we've enabled the following:
 
 Reference: https://github.com/terraform-linters/tflint-ruleset-terraform/blob/main/docs/rules/README.md 
 
+### Vault Authentication in GitHub Action
+
+The action `hashicorp/vault-action` will need the following setup in the GitHub Repository
+
+In this use case, we need the TF ORG token to be able to get the module in the Private Module Registry.
+
+
+`VAULT_ADDR` = Vault address 
+`VAULT_TOKEN` = Token that has read access to the TF ORG token in Vault
+
 ### CODEOWNERS Validator and Required Files
 
 * Checks that there's a CODEOWNERS file and there's an owner specified.
-* Checks check that the following files exists
-  * Root Module
-    * README.md
-    * provider.tf
-    * backend.tf
-      TODO: Potentially integrate the Buildblocks CLI to validate
 
 ### checkov
 
 * checkov is a static code analysis tool used for infrastructure-as-code. 
 * Much like tflint, checkov also follows a set of policies that you can dictate but is geared towards security checks. 
 
-
 * To pull modules on a private registry the following must be set:
   * Enviornment Variables
   ```
   env:
-    TF_HOST_NAME: tfe.karla-gabriel.sbx.hashidemos.io
+    TF_HOST_NAME: ${{ env.TFE_ORG_TOKEN }}
     TF_REGISTRY_TOKEN: ${{ secrets.TF_ORG_TOKEN }}
 
   ```
@@ -107,7 +110,6 @@ An additional step that is added to the workflow to automatically commit the cha
 
 the `dependabot.yaml` file contains all the configurations you need. 
 
-https://github.com/kgabriel-hashicorp/demo-root-module/blob/main/.github/dependabot.yaml
 
 ## Validate
 
@@ -133,4 +135,5 @@ We use the following action and plugins:
   * Rules set up under `.releaserc.json` 
     * `plugins>@semantic-release/release-notes-generator>presetConfig>types`
 The configuration for these is `.releaserc.json`
+
 
