@@ -16,7 +16,7 @@ jobs:
     - name: Import Terraform Token
       uses: hashicorp/vault-action@v3.0.0
       with:
-        url: https://vault-cluster-kg-public-vault-5f1c0689.57798f31.z1.hashicorp.cloud:8200
+        url: ${{ env.VAULT_ADDR }}
         exportToken: true
         tlsSkipVerify: true
         namespace: admin
@@ -26,7 +26,7 @@ jobs:
     - name: Checkov
       uses: bridgecrewio/checkov-action@v12
       env:
-        TF_HOST_NAME: tfe.karla-gabriel.sbx.hashidemos.io
+        TF_HOST_NAME: ${{ env.TF_HOST_NAME}}
         TF_REGISTRY_TOKEN: ${{ secrets.TFE_ORG_TOKEN }}
       with:
         output_format: cli
