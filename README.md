@@ -57,12 +57,11 @@ You will need to have GitHub Actions available for this repository.
 
 * Commit messages and PR titles must follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
 * When writing commit messages note the following will impact:
-    * PR Title should have the correct [prefix](https://github.com/kgabriel-hashicorp/module-template/blob/main/.github/workflows/validate.yml#L22)
-    * Make sure that the first character of the the title (after the prefix is in uppercase)
+    * PR Title should have the correct 
 
     Example PR Title:
 
-        fix: Fix a typo in the code
+        fix: fix a typo in the code
 
 * Pull requests will need to be reviewed by the CODEOWNERS.
 
